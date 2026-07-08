@@ -22,9 +22,9 @@ body {
 }
 
 img {
-  width: 100%;
+  max-width: 100%;
+  height: auto;
   display: block;
-  object-fit: cover;
 }
 a {
   color: inherit;
@@ -89,8 +89,8 @@ a {
 }
 
 .brand img {
-  width: 46px;
-  height: 46px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -241,7 +241,43 @@ h3 {
 
 .card img {
   border-radius: 0.8rem;
-  height: 240px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Fix for small logo images inside cards (e.g., the one in the About section). */
+.image-card img {
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0.8rem;
+  display: block;
+}
+
+/* Limit logo size for the small image card used in the About section on index page */
+.section.container > .card.image-card {
+  max-width: 480px; /* larger when used as hero */
+  width: 100%;
+  margin: 0 auto 0.8rem; /* center horizontally */
+  padding: 0.5rem;
+  display: block;
+}
+
+/* Ensure the image inside the hero logo card scales and is centered */
+.section.container > .card.image-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (min-width: 900px) {
+  .section.container > .card.image-card {
+    max-width: 640px; /* larger on wide screens */
+  }
 }
 
 .card:hover img {
