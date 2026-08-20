@@ -284,6 +284,28 @@ h3 {
   transform: scale(1.02);
 }
 
+.membership-hero-image {
+  max-width: 760px;
+  width: 100%;
+  margin: 0 auto 1.5rem;
+  padding: 0.5rem;
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  box-shadow: 0 12px 30px rgba(20, 34, 27, 0.08);
+}
+
+.membership-hero-image img {
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  object-fit: contain;
+  background: #edf5ef;
+  border-radius: 0.8rem;
+  display: block;
+}
+
 .btn {
   display: inline-block;
   padding: 0.8rem 1.15rem;
@@ -372,6 +394,169 @@ h3 {
   max-width: 760px;
 }
 
+.gallery-hero {
+  display: grid;
+  grid-template-columns: 1.5fr 0.9fr;
+  gap: 1.5rem;
+  align-items: end;
+}
+
+.gallery-hero-card {
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: white;
+  box-shadow: none;
+}
+
+.mini-label {
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  opacity: 0.8;
+}
+
+.gallery-hero-card strong {
+  display: block;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.gallery-hero-card span {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.gallery-item {
+  position: relative;
+  grid-column: span 4;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 30px rgba(20, 34, 27, 0.08);
+}
+
+.gallery-item.wide {
+  grid-column: span 8;
+}
+
+.gallery-item.tall {
+  grid-row: span 2;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.04);
+}
+
+.gallery-item figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem 1rem 1.1rem;
+  background: linear-gradient(180deg, transparent, rgba(9, 23, 17, 0.82));
+  color: white;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.gallery-item figcaption span {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.8;
+}
+
+.gallery-item figcaption strong {
+  font-size: 1rem;
+}
+
+.callout-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.5rem 1.7rem;
+}
+
+.membership-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.membership-card.featured {
+  border-color: var(--accent);
+  box-shadow: 0 18px 36px rgba(31, 122, 79, 0.12);
+  background: linear-gradient(180deg, #ffffff, #edf8f1);
+}
+
+.price {
+  font-size: clamp(1.7rem, 3vw, 2.6rem);
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.schedule-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.schedule-item {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.schedule-item:last-child {
+  border-bottom: 0;
+}
+
+.schedule-item strong {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  border-radius: 0.8rem;
+  background: var(--accent-soft);
+  color: var(--primary);
+  font-size: 0.9rem;
+  padding: 0.5rem 0.8rem;
+}
+
+.schedule-item h3 {
+  margin-bottom: 0.25rem;
+}
+
+.schedule-item p {
+  margin: 0;
+  color: var(--muted);
+}
+
 .site-footer {
   background: var(--primary);
   color: white;
@@ -415,7 +600,24 @@ h3 {
 
 @media (max-width: 860px) {
   .two-col,
-  .three-col {
+  .three-col,
+  .gallery-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-item,
+  .gallery-item.wide,
+  .gallery-item.tall {
+    grid-column: span 6;
+    grid-row: span 1;
+  }
+
+  .callout-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .schedule-item {
     grid-template-columns: 1fr;
   }
 }
@@ -445,5 +647,19 @@ h3 {
   }
   .section {
     padding: 3.5rem 0;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-item,
+  .gallery-item.wide,
+  .gallery-item.tall {
+    grid-column: span 1;
+  }
+
+  .gallery-item img {
+    min-height: 220px;
   }
 }
